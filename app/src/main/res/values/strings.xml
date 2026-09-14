@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Project Hadware Inventory System</string>
+
+    <string name="filter_by_status_prompt">Filter by Status</string>
+
+
+    <string-array name="status_filter_options">
+        <item>All Statuses</item>
+        <item>Available</item>
+        <item>Maintenance</item>
+        <item>Checked Out</item>
+    </string-array>
+
+    <string-array name="department_array">
+        <item>Inventory Manager</item>
+    </string-array>
+
+
+
+</resources>

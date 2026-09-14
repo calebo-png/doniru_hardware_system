@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    tools:context=".Inventory">
+
+
+    <ImageView
+        android:id="@+id/imageViewHeaderBackground"
+        android:layout_width="216dp"
+        android:layout_height="171dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="Header background image"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/round_circle" />
+
+    <ImageView
+        android:id="@+id/imageViewInventoryIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewHeaderBackground"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewHeaderBackground"
+        app:layout_constraintStart_toStartOf="@+id/imageViewHeaderBackground"
+        app:layout_constraintTop_toTopOf="@+id/imageViewHeaderBackground"
+        app:srcCompat="@drawable/dark_inventory"
+        android:contentDescription="Inventory icon" />
+
+    <TextView
+        android:id="@+id/textViewInventoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/abril_fatface"
+        android:text="INVENTORY"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewHeaderBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/inventorySearchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search inventory..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewInventoryTitle" />
+
+    <TextView
+        android:id="@+id/header_inv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:text="Name"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_model"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inventorySearchView" />
+
+    <TextView
+        android:id="@+id/header_inv_model"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Model"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_serial"
+        app:layout_constraintStart_toEndOf="@id/guideline_model"
+        app:layout_constraintTop_toTopOf="@id/header_inv_name" />
+
+    <TextView
+        android:id="@+id/header_inv_serial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Serial No."
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_status"
+        app:layout_constraintStart_toEndOf="@id/guideline_serial"
+        app:layout_constraintTop_toTopOf="@id/header_inv_name" />
+
+    <TextView
+        android:id="@+id/header_inv_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:padding="8dp"
+        android:text="Status"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline_status"
+        app:layout_constraintTop_toTopOf="@id/header_inv_name" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_serial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewInventory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+    android:nestedScrollingEnabled="true"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    app:layout_constraintTop_toBottomOf="@id/header_inv_name"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/fab_add_device"
+    app:layout_constrainedHeight="true"
+    tools:listitem="@layout/item_inventory_row" />
+
+     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:srcCompat="@drawable/ic_add"
+    android:contentDescription="Add new device" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
